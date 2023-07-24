@@ -1,7 +1,12 @@
 import { Fragment } from 'react';
 import { makes, years, plans } from '../constants';
+import useQuote from '../hooks/useQuote';
 
 export default function Form() {
+
+  const { quotation, createQuotation } = useQuote();
+  const { make, year } = quotation;
+
   return (
     <>
       <form>
@@ -11,6 +16,8 @@ export default function Form() {
             name="make"
             id="make"
             className="w-full p-3 bg-white border border-gray-200"
+            onChange={(e) => createQuotation(e)}
+            value={make}
           >
             <option value="">-- Selecciona Marca --</option>
             {makes.map(({ id, name }) => (
@@ -30,6 +37,8 @@ export default function Form() {
             name="year"
             id="year"
             className="w-full p-3 bg-white border border-gray-200"
+            onChange={(e) => createQuotation(e)}
+            value={year}
           >
             <option value="">-- Selecciona Año --</option>
             {years.map((year) => (
@@ -51,7 +60,12 @@ export default function Form() {
                 key={id}
               >
                 <label htmlFor={name}>{name}</label>
-                <input type="radio" name="plan" id={name} value={id} />
+                <input
+                  type="radio"
+                  name="plan" id={name}
+                  value={id}
+                  onChange={(e) => createQuotation(e)}
+                />
               </Fragment>
             ))}
           </div>
