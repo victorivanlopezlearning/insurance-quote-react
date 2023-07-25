@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { getDifferenceYear } from "../helpers";
+import { getDifferenceYear, calculateByMake } from "../helpers";
 
 const QuoteContext = createContext();
 
@@ -24,6 +24,7 @@ export const QuoteProvider = ({ children }) => {
     let result = 2000;
     const differenceYear = getDifferenceYear(quotation.year);
     result -= ((differenceYear * 3) * result) / 100;
+    result *= calculateByMake(quotation.make);
     
   }
 
