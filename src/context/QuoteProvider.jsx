@@ -13,6 +13,7 @@ export const QuoteProvider = ({ children }) => {
 
   const [error, setError] = useState('');
   const [showResult, setShowResult] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const createQuotation = (e) => {
     setQuotation({
@@ -28,7 +29,11 @@ export const QuoteProvider = ({ children }) => {
     result *= calculateByMake(quotation.make);
     result *= calculateByPlan(quotation.plan);
     result = formatToDollars(result);
-    setShowResult(result);
+    setLoading(true);
+    setTimeout(() => {
+      setShowResult(result);
+      setLoading(false);
+    }, 1500);
   }
 
   return (
@@ -40,6 +45,7 @@ export const QuoteProvider = ({ children }) => {
         setError,
         insuranceQuote,
         showResult,
+        loading,
       }}
     >
       {children}
