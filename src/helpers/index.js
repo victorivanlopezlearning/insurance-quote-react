@@ -1,2 +1,3 @@
-export { getDifferenceYear } from './getDifferenceYear';
 export { calculateByMake } from './calculateByMake';
+export { calculateByPlan } from './calculateByPlan';
+export { getDifferenceYear } from './getDifferenceYear';
