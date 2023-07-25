@@ -12,14 +12,15 @@ export default function Result() {
   const { make, year, plan } = quotation;
   const yearRef = useRef(year);
 
-  const [nameMake] = useMemo(() => (
-    makes.filter(m => m.id === Number(make)),
+  const [nameMake] = useMemo(
+    () => makes.filter(m => m.id === Number(make)),
     [result]
-  ))
-  const [namePlan] = useMemo(() => (
-    plans.filter(p => p.id === Number(plan)),
+  );
+
+  const [namePlan] = useMemo(
+    () => plans.filter(p => p.id === Number(plan)),
     [result]
-  ))
+  );
 
   return (
     <div className="bg-gray-100 text-center mt-5 p-5 shadow">
