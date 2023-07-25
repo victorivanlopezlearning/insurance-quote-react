@@ -1,5 +1,6 @@
 import useQuote from "../hooks/useQuote";
 import Form from "./Form";
+import Result from "./Result";
 import Spinner from "./Spinner";
 
 export default function AppInsurance() {
@@ -14,7 +15,7 @@ export default function AppInsurance() {
 
       <main className="bg-white md:w-2/3 lg:w-2/4 mx-auto shadow rounded-lg p-5 lg:p-10">
         <Form />
-        {loading ? <Spinner /> : 'Result'}
+        {loading ? <Spinner /> : <Result />}
       </main>
     </>
   )
