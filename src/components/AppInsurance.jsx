@@ -1,6 +1,10 @@
+import useQuote from "../hooks/useQuote";
 import Form from "./Form";
 
 export default function AppInsurance() {
+
+  const { showResult } = useQuote();
+
   return (
     <>
       <header className="my-10">
@@ -9,6 +13,7 @@ export default function AppInsurance() {
 
       <main className="bg-white md:w-2/3 lg:w-2/4 mx-auto shadow rounded-lg p-5 lg:p-10">
         <Form />
+        {showResult}
       </main>
     </>
   )

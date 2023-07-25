@@ -12,6 +12,7 @@ export const QuoteProvider = ({ children }) => {
   });
 
   const [error, setError] = useState('');
+  const [showResult, setShowResult] = useState('');
 
   const createQuotation = (e) => {
     setQuotation({
@@ -27,6 +28,7 @@ export const QuoteProvider = ({ children }) => {
     result *= calculateByMake(quotation.make);
     result *= calculateByPlan(quotation.plan);
     result = formatToDollars(result);
+    setShowResult(result);
   }
 
   return (
@@ -37,6 +39,7 @@ export const QuoteProvider = ({ children }) => {
         error,
         setError,
         insuranceQuote,
+        showResult,
       }}
     >
       {children}
