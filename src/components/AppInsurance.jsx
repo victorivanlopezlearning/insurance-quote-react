@@ -10,7 +10,7 @@ export default function AppInsurance() {
   return (
     <>
       <header className="my-10">
-        <h1 className="text-4xl text-white text-center font-black">Cotizador de Seguros de Auto</h1>
+        <h1 className="text-4xl text-white text-center font-black">Cotizador Seguro de Auto</h1>
       </header>
 
       <main className="mx-2 my-10 md:my-0 md:max-w-xl md:mx-auto shadow rounded-lg p-5 lg:p-10 overflow-hidden bg-white ">
