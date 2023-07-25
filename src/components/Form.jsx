@@ -5,7 +5,7 @@ import ErrorMessage from './ErrorMessage';
 
 export default function Form() {
 
-  const { quotation, createQuotation, error, setError } = useQuote();
+  const { quotation, createQuotation, error, setError, insuranceQuote } = useQuote();
   const { make, year } = quotation;
 
   const handleSubmit = (e) => {
@@ -16,6 +16,7 @@ export default function Form() {
       return;
     }
     setError('');
+    insuranceQuote();
   }
 
   return (

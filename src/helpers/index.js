@@ -1,0 +1,1 @@
+export { getDifferenceYear } from './getDifferenceYear';

@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { getDifferenceYear } from "../helpers";
 
 const QuoteContext = createContext();
 
@@ -19,6 +20,13 @@ export const QuoteProvider = ({ children }) => {
     })
   }
 
+  const insuranceQuote = () => {
+    let result = 2000;
+    const differenceYear = getDifferenceYear(quotation.year);
+    result -= ((differenceYear * 3) * result) / 100;
+    
+  }
+
   return (
     <QuoteContext.Provider
       value={{
@@ -26,6 +34,7 @@ export const QuoteProvider = ({ children }) => {
         createQuotation,
         error,
         setError,
+        insuranceQuote,
       }}
     >
       {children}
