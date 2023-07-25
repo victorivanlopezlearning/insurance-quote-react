@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { getDifferenceYear, calculateByMake, calculateByPlan } from "../helpers";
+import { getDifferenceYear, calculateByMake, calculateByPlan, formatToDollars } from "../helpers";
 
 const QuoteContext = createContext();
 
@@ -26,7 +26,7 @@ export const QuoteProvider = ({ children }) => {
     result -= ((differenceYear * 3) * result) / 100;
     result *= calculateByMake(quotation.make);
     result *= calculateByPlan(quotation.plan);
-    
+    result = formatToDollars(result);
   }
 
   return (
