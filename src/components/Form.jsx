@@ -1,15 +1,29 @@
 import { Fragment } from 'react';
 import { makes, years, plans } from '../constants';
 import useQuote from '../hooks/useQuote';
+import ErrorMessage from './ErrorMessage';
 
 export default function Form() {
 
-  const { quotation, createQuotation } = useQuote();
+  const { quotation, createQuotation, error, setError } = useQuote();
   const { make, year } = quotation;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (Object.values(quotation).includes('')) {
+      setError('Todos los campos son obligatorios');
+      return;
+    }
+    setError('');
+  }
 
   return (
     <>
-      <form>
+      {error && <ErrorMessage />}
+      <form
+        onSubmit={handleSubmit}
+      >
         <div className="my-5">
           <label htmlFor="make" className="block mb-3 font-bold text-gray-400 uppercase">Marca</label>
           <select

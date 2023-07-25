@@ -10,6 +10,8 @@ export const QuoteProvider = ({ children }) => {
     plan: '',
   });
 
+  const [error, setError] = useState('');
+
   const createQuotation = (e) => {
     setQuotation({
       ...quotation,
@@ -22,6 +24,8 @@ export const QuoteProvider = ({ children }) => {
       value={{
         quotation,
         createQuotation,
+        error,
+        setError,
       }}
     >
       {children}
